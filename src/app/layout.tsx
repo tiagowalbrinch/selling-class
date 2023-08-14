@@ -1,18 +1,17 @@
-import { Header } from "@/components"
+import { Header, PageContainer, PageBody } from "@/components"
 import "./globals.css"
-import { Provider } from "react-redux"
-import store from "@/common/stores/stores"
+import { Provider } from "@/common/stores/provider"
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <Provider store={store}>
-      <html>
-        <head />
-        <body>
+    <html>
+      <head />
+      <Provider>
+        <PageBody>
           <Header />
-          {children}
-        </body>
-      </html>
-    </Provider>
+          <PageContainer>{children}</PageContainer>
+        </PageBody>
+      </Provider>
+    </html>
   )
 }
